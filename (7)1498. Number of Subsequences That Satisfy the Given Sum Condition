@@ -1,0 +1,20 @@
+--------------------------------------------------------------------------------------------
+int numSubseq(vector<int>& nums, int target) {
+        sort(nums.begin(),nums.end());
+        vector<int>power(nums.size(),1);
+     
+        for(int i=1;i<nums.size();i++)power[i]=(power[i-1]*2)%MOD;
+        int  ans=0;
+        int  s=0,e=nums.size()-1;
+        while(s<=e)
+        {
+            if(nums[s]+nums[e]<=target)
+            {
+                ans=ans%MOD+power[e-s]%MOD;
+                s++;
+            }
+            else e--;
+        }
+        return ans;
+    }
+--------------------------------------------------------------------------
