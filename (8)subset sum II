@@ -1,0 +1,23 @@
+---------------------------------normal recursive method-------------------------------------------------------------
+vector<vector<int>>ans;
+     void solve(int ind,vector<int>ds,vector<int>nums)
+     {
+         if(ind==nums.size()){
+             ans.push_back(ds);
+             return;
+         }
+         //picked
+         ds.push_back(nums[ind]);
+         solve(ind+1,ds,nums);
+         ds.pop_back();
+         //notPicked
+         while(ind<nums.size()-1&&nums[ind]==nums[ind+1])ind++;
+         solve(ind+1,ds,nums);
+     }
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        vector<int>ds;
+        sort(nums.begin(),nums.end());
+        int New=true;
+        solve(0,ds,nums);
+        return ans;
+    }-----------------------------iterative recursion----------------------------------------------------------
