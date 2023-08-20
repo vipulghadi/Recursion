@@ -1,0 +1,29 @@
+---------------------------------------------------------------------------------------------------------
+void solve(int ind,string &digits, unordered_map<char,string>&m,string ds){
+        if(ind==digits.size()){
+            ans.push_back(ds);
+            return;
+        }
+        string cstring=m[digits[ind]];
+        for(int i=0;i<cstring.size();i++){
+            ds.push_back(cstring[i]);
+            solve(ind+1,digits,m,ds);
+            ds.pop_back();
+        }
+    }
+    vector<string> letterCombinations(string digits) {
+       unordered_map<char,string>m;
+       m['2']="abc";
+       m['3']="def";
+       m['4']="ghi";
+       m['5']="jkl";
+       m['6']="mno";
+       m['7']="pqrs";
+       m['8']="tuv";
+       m['9']="wxyz";
+       if(digits.size()==0)return{};
+       string ds="";
+       solve(0,digits,m,ds);
+       return ans;
+    }
+-----------------------------------------------------------------------------------------------------------------
