@@ -1,5 +1,6 @@
----------------------------------dp solution---------------------------------------
-unordered_set<string>set;
+class Solution {
+public:
+    unordered_set<string>set;
    
     bool solve(int ind,string &s,vector<int>&dp)
     {
@@ -20,4 +21,4 @@ unordered_set<string>set;
          vector<int>dp(s.size(),-1);
         return solve(0,s,dp);
     }
--------------------------------------------------------------------------------------------------
+};
